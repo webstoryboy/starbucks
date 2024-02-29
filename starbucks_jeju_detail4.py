@@ -1,10 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 from datetime import datetime
 import time
 import json 
+import re
 
 # 운영시간 가져오기
 def extract_info_by_label(soup, label_text, default="정보 없음"):
@@ -33,11 +35,11 @@ time.sleep(10)
 
 # 클릭 및 이동
 browser.find_element(By.CSS_SELECTOR, "#container > div > form > fieldset > div > section > article.find_store_cont > article > header.loca_search > h3 > a").click()
-time.sleep(5) # 지역검색
-browser.find_element(By.CSS_SELECTOR, ".loca_step1_cont .sido_arae_box li:nth-child(3)").click()
-time.sleep(5) # 시도 선택
+time.sleep(5)
+browser.find_element(By.CSS_SELECTOR, ".loca_step1_cont .sido_arae_box li:nth-child(16)").click()
+time.sleep(5)
 browser.find_element(By.CSS_SELECTOR, "#mCSB_2_container > ul > li:nth-child(1) > a").click()
-time.sleep(5) # 전체 선택
+time.sleep(5)
 
 # 전체 점포 리스트 가져오기
 stores = browser.find_elements(By.CSS_SELECTOR, ".quickSearchResultBoxSidoGugun .quickResultLstCon")
@@ -104,13 +106,13 @@ final_data = {
     "kind": "한국스타벅스",
     "data": today,
     "etag": f"we820403{today}",
-    "location": "광주광역시",
+    "location": "제주특별자치도",
     "count": len(store_data_list),
     "item": store_data_list
 }
 
 # JSON 파일로 저장
-filename = f'starbucks_gwangju_detail_{today}.json'
+filename = f'starbucks_store_jeju_detail_{today}.json'
 with open(filename, 'w', encoding='utf-8') as f:
     json.dump(final_data, f, ensure_ascii=False, indent=4)
 

@@ -45,13 +45,13 @@ final_data = {
     "kind": "한국스타벅스",
     "data": today,
     "etag": f"we820403{today}",
-    "location": "경기",
+    "location": "경기도",
     "count": len(stores_data),
     "item": stores_data
 }
 
 # json 파일 추가하기
-filename = f'starbucks_stores_gyeonggi_{today}.json'
+filename = f'starbucks_gyeonggi_{today}.json'
 with open(filename, 'w', encoding='utf-8') as f:
     json.dump(final_data, f, ensure_ascii=False, indent=4)
 

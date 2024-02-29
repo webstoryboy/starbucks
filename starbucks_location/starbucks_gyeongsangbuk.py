@@ -51,7 +51,7 @@ final_data = {
 }
 
 # json 파일 추가하기
-filename = f'starbucks_stores_gyeongsangbuk_{today}.json'
+filename = f'starbucks_gyeongsangbuk_{today}.json'
 with open(filename, 'w', encoding='utf-8') as f:
     json.dump(final_data, f, ensure_ascii=False, indent=4)
 

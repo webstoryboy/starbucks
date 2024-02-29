@@ -34,7 +34,7 @@ time.sleep(10)
 # 클릭 및 이동
 browser.find_element(By.CSS_SELECTOR, "#container > div > form > fieldset > div > section > article.find_store_cont > article > header.loca_search > h3 > a").click()
 time.sleep(5) # 지역검색
-browser.find_element(By.CSS_SELECTOR, ".loca_step1_cont .sido_arae_box li:nth-child(3)").click()
+browser.find_element(By.CSS_SELECTOR, ".loca_step1_cont .sido_arae_box li:nth-child(15)").click()
 time.sleep(5) # 시도 선택
 browser.find_element(By.CSS_SELECTOR, "#mCSB_2_container > ul > li:nth-child(1) > a").click()
 time.sleep(5) # 전체 선택
@@ -104,13 +104,13 @@ final_data = {
     "kind": "한국스타벅스",
     "data": today,
     "etag": f"we820403{today}",
-    "location": "광주광역시",
+    "location": "충청북도",
     "count": len(store_data_list),
     "item": store_data_list
 }
 
 # JSON 파일로 저장
-filename = f'starbucks_gwangju_detail_{today}.json'
+filename = f'starbucks_chungcheongbuk_detail_{today}.json'
 with open(filename, 'w', encoding='utf-8') as f:
     json.dump(final_data, f, ensure_ascii=False, indent=4)
 
