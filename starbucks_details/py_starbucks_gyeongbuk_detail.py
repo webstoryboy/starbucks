@@ -104,13 +104,13 @@ final_data = {
     "kind": "한국스타벅스",
     "data": today,
     "etag": f"we820403{today}",
-    "location": "충청북도",
+    "location": "경상북도",
     "count": len(store_data_list),
     "item": store_data_list
 }
 
 # JSON 파일로 저장
-filename = f'starbucks_chungcheongbuk_detail_{today}.json'
+filename = f'starbucks_gyeongbuk_detail_{today}.json'
 with open(filename, 'w', encoding='utf-8') as f:
     json.dump(final_data, f, ensure_ascii=False, indent=4)
 
